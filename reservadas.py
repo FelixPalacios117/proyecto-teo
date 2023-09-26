@@ -1,0 +1,10 @@
+reservadas={
+    'if':'IF',
+    'else':'ELSE',
+    'using':'USING',
+    'return':'RETURN',
+    'void':'VOID',
+    'int':'INT',
+    'string':'STRING',
+    'bool':'BOOL'
+}
