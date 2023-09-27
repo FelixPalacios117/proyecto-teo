@@ -1,0 +1,17 @@
+tokens=[
+    'ID',
+    'INTEGER',
+    'ignore',
+    'plus',
+    'minus',
+    'multiplication',
+    'division',
+    'comma',
+    'semicolon',
+    'leftparent',
+    'rightparent',
+    'BOOLEAN',
+    'STRING',
+    'assign',
+    'error'
+]

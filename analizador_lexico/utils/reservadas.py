@@ -6,5 +6,8 @@ reservadas={
     'void':'VOID',
     'int':'INT',
     'string':'STRING',
-    'bool':'BOOL'
+    'bool':'BOOL',
+    'do':'DO',
+    'while':'WHILE',
+    'for':'FOR'
 }
