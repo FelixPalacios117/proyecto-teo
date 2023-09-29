@@ -1,5 +1,7 @@
 tokens=[
-    'ID',
+    'id',
+    'keyword',
+    'comment',
     'INTEGER',
     'ignore',
     'plus',
@@ -9,6 +11,8 @@ tokens=[
     'comma',
     'semicolon',
     'leftparent',
+    'leftkey',
+    'rightkey',
     'rightparent',
     'BOOLEAN',
     'STRING',
