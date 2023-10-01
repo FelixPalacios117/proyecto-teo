@@ -6,6 +6,7 @@ int main(){
     bool a=true;
     string p="sasasa";
     char q='a';
+    $
     double x=0.1;
     int c=0;
     //ok

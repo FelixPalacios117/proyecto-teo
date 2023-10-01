@@ -65,7 +65,9 @@ def t_inclusion(token):
     return token
 #El manejo de errores(simbolos que no pertenecen al lenguaje)
 def t_error(t):
-    print(f"Error léxico: '{t.value}'")
+    print("\n")
+    print("*Error, el token {} no es válido en la linea {} *".format(str(t.value[0]),str(t.lineno)))
+    print("\n")
     t.lexer.skip(1)
 # Crear el analizador léxico
 lexer = lex.lex()
@@ -82,8 +84,9 @@ if __name__ == '__main__':
     print('Lista de tokens')
     print ('\n')
     while True:
-        token = lexer.token()
-        if not token:
+        tok= lexer.token()
+        if not tok:
            break
-        print(f'Tipo: {token.type}, Valor: {token.value}')
+        print("Linea #{:6} Posicion: {:12} Tipo: {:24} Valor: {:30}".format(str(tok.lineno), str(tok.lexpos), str(tok.type) ,str(tok.value)))
+        #print(f'Tipo: {token.type}, Valor: {token.value}')
 
