@@ -88,5 +88,4 @@ if __name__ == '__main__':
         if not tok:
            break
         print("Linea #{:6} Posicion: {:12} Tipo: {:24} Valor: {:30}".format(str(tok.lineno), str(tok.lexpos), str(tok.type) ,str(tok.value)))
-        #print(f'Tipo: {token.type}, Valor: {token.value}')
 
