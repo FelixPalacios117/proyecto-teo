@@ -10,12 +10,11 @@ reservadas={
     'void':'palabra_reservada',
     'int':'palabra_reservada',
     'char':'palabra_reservada',
-    #'float':'palabra_reservada',
     'double':'palabra_reservada',
     'string':'palabra_reservada',
     'main':'palabra_reservada',
     'bool':'palabra_reservada',
-    'do':'control',
-    'while':'control',
-    'for':'FOR'
+    'do':'palabra_reservada',
+    'while':'palabra_reservada',
+    'for':'palabra_reservada'
 }
