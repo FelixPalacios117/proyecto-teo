@@ -1,6 +1,8 @@
 reservadas={
     'System':'palabra_reservada',
     'class':'palabra_reservada',
+    'switch':'palabra_reservada',
+    'case':'palabra_reservada',
     'if':'palabra_reservada',
     'else':'palabra_reservada',
     'return':'palabra_reservada',
