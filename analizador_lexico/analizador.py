@@ -8,8 +8,8 @@ t_mas=r'\+'
 t_asignacion=r'\='
 t_menos=r'\-'
 t_multiplicacion=r'\*'
-t_insercion = r'<<'
-t_extraccion = r'>>'
+t_menor_que=r'\<='
+t_mayor_que=r'\>='
 t_menor=r'\<'
 t_mayor=r'\>'
 t_division=r'/'
@@ -19,7 +19,6 @@ t_llave_de_inicio=r'\{'
 t_llave_de_cierre=r'\}'
 t_parentesis_de_inicio=r'\('
 t_parentesis_de_cierre=r'\)'
-t_namespace=r'namespace'
 
 def t_char(token):
     r"'.'"
@@ -31,13 +30,6 @@ def t_bool(token):
 def t_salto_de_linea(token):
     r'\n+'
     token.lexer.lineno += len(token.value)
-#incluir librerias
-""" def t_libreria(token):
-    r'[<"][\w\.]+[>"]'
-    return token """
-def t_include(token):
-    r'\#include'
-    return token
 def t_string(token):
     r'"[^"]*"'
     return token
@@ -64,10 +56,6 @@ def t_int(token):
     r'\d+'
     token.value=int(token.value)
     return token
-""" def t_libreria_incluida(token):
-    r'\#include\s+[<"][\w\.]+[>"]'
-    token.type = reservadas.get(token.value, 'libreria_incluida')
-    return token """
 #El manejo de errores(simbolos que no pertenecen al lenguaje)
 def t_error(t):
     """ print("\n")
@@ -77,20 +65,30 @@ def t_error(t):
 # Crear el analizador léxico
 analizador = lex.lex()
 def leer_fichero():
-    with open('./test/test.cpp', 'r') as archivo_cpp:
+    with open('./test/test.cs', 'r') as archivo_csharp:
     # Lee el contenido del archivo
-        contenido=archivo_cpp.read()
+        contenido=archivo_csharp.read()
     return contenido
 # correr lexer
 if __name__ == '__main__':
     analizador.input(str(leer_fichero()))
     print('Archivo cargado correctamente')
     print('\n')
-    print('Lista de tokens')
-    print ('\n')
+    tabla_simbolos={}
+    print('Lista de tokens....')
+    print("\n")
     while True:
         token= analizador.token()
         if not token:
            break
+        tabla_simbolos[token.lexpos]={
+            'Linea':token.lineno,
+            'Posicion':token.lexpos,
+            'Tipo':token.type,
+            'Valor':token.value
+        }
         print("Linea {:6} Posicion: {:12} Tipo: {:24} Valor: {:30}".format(str(token.lineno), str(token.lexpos), str(token.type) ,str(token.value)))
-
+    print("\n")
+    print("Tabla de simbolos...")
+    print("\n")
+    print(tabla_simbolos)
