@@ -7,10 +7,10 @@ class Program
         /*Comentario de multilinea de
         prueba*/
         int numero=0;
-        double decimal=0.9;
+        double num=0.9;
         string cadena="Prueba";
-        if(decimal<0){
-            Console.WriteLine
+        if(num<0){
+            Console.WriteLine("Test");
         }
         Console.WriteLine("This is a test for testing lexer");
     }
