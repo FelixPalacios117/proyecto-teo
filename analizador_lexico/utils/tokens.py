@@ -1,10 +1,10 @@
 tokens=[
     'identificador',
     'mayor',
-    'mayor_que',
-    'menor_que',
+    'mayor_igual_que',
+    'menor_igual_que',
+    'igual_que',
     'menor',
-    'namespace',
     'int',
     'double',
     'palabra_reservada',
@@ -23,7 +23,6 @@ tokens=[
     'llave_de_cierre',
     'parentesis_de_cierre',
     'bool',
-    'char',
     'string',
     'asignacion',
     'error'

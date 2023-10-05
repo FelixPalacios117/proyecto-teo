@@ -8,8 +8,8 @@ t_mas=r'\+'
 t_asignacion=r'\='
 t_menos=r'\-'
 t_multiplicacion=r'\*'
-t_menor_que=r'\<='
-t_mayor_que=r'\>='
+t_menor_igual_que=r'\<='
+t_mayor_igual_que=r'\>='
 t_menor=r'\<'
 t_mayor=r'\>'
 t_division=r'/'
@@ -20,9 +20,6 @@ t_llave_de_cierre=r'\}'
 t_parentesis_de_inicio=r'\('
 t_parentesis_de_cierre=r'\)'
 
-def t_char(token):
-    r"'.'"
-    return token
 def t_bool(token):
     r'true|false'
     return token
@@ -56,11 +53,8 @@ def t_int(token):
     r'\d+'
     token.value=int(token.value)
     return token
-#El manejo de errores(simbolos que no pertenecen al lenguaje)
+#El manejo de errores(simbolos que no pertenecen al lenguaje) solo se ignoran
 def t_error(t):
-    """ print("\n")
-    print("* Error, el token {} no es válido en la linea {} *".format(str(t.value[0]),str(t.lineno)))
-    print("\n") """
     t.lexer.skip(1)
 # Crear el analizador léxico
 analizador = lex.lex()
