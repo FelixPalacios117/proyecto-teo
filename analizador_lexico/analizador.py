@@ -13,8 +13,9 @@ t_mayor_igual_que=r'\>='
 t_menor=r'\<'
 t_mayor=r'\>'
 t_division=r'/'
+t_punto=r'\.'
 t_coma=r'\,'
-t_fin_instruccion=r'\;'
+t_fin_de_instruccion=r'\;'
 t_llave_de_inicio=r'\{'
 t_llave_de_cierre=r'\}'
 t_parentesis_de_inicio=r'\('
@@ -40,7 +41,7 @@ def t_comentario(token):
     r'\/\/.*'
     pass
 #linea de comentario
-def t_linea_de_comentario(token):
+def t_linea_comentario(token):
     r'\/\*[\s\S]*?\*\/'
     pass
 #Tipo double
@@ -58,16 +59,26 @@ def t_error(t):
     t.lexer.skip(1)
 # Crear el analizador léxico
 analizador = lex.lex()
-def leer_fichero():
-    with open('./test/test.cs', 'r') as archivo_csharp:
+def leer_fichero(txt):
+    with open(txt, 'r',encoding = "utf8") as archivo_csharp:
     # Lee el contenido del archivo
         contenido=archivo_csharp.read()
     return contenido
-# correr lexer
-if __name__ == '__main__':
-    analizador.input(str(leer_fichero()))
-    print('Archivo cargado correctamente')
-    print('\n')
+# método para generar tabla de simbolos
+def imprimir_tabla(tabla):
+    encabezados = ("Linea", "Posicion", "Tipo", "Valor")
+    # Imprimir encabezados
+    print("| {:<10} | {:<10} | {:<25} | {:<35} |".format(*encabezados))
+    print("|{:-<12}|{:-<12}|{:-<27}|{:-<37}|".format('', '', '', ''))
+
+    for lexpos, data in tabla.items():
+        fila = "| {:<10} | {:<10} | {:<25} | {:<35} |".format(
+            data['Linea'], data['Posicion'], data['Tipo'], data['Valor'])
+        print(fila)
+def identificar_tokens(analizador,txt):
+    print("\n")
+    analizador.input(str(leer_fichero(txt)))
+    print('Dirección del archivo cargado: '+txt)
     tabla_simbolos={}
     print('Lista de tokens....')
     print("\n")
@@ -81,8 +92,14 @@ if __name__ == '__main__':
             'Tipo':token.type,
             'Valor':token.value
         }
-        print("Linea {:6} Posicion: {:12} Tipo: {:24} Valor: {:30}".format(str(token.lineno), str(token.lexpos), str(token.type) ,str(token.value)))
+        print("Linea {:6} Posicion: {:12} Tipo: {:24} Valor: {:40}".format(str(token.lineno), str(token.lexpos), str(token.type) ,str(token.value)))
     print("\n")
     print("Tabla de simbolos...")
     print("\n")
-    print(tabla_simbolos)
+    imprimir_tabla(tabla_simbolos)
+if __name__ == '__main__':
+    ##identificar_tokens(analizador,'./test/test.cs')
+    identificar_tokens(analizador,'./test/test1.cs')
+    ##identificar_tokens(analizador,'./test/test2.cs')
+    print('\n')
+    
