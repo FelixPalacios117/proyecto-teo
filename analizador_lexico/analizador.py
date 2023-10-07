@@ -17,9 +17,15 @@ t_punto=r'\.'
 t_coma=r'\,'
 t_fin_de_instruccion=r'\;'
 t_llave_de_inicio=r'\{'
+t_acumulado=r'\+\+'
+t_restar_acumulado=r'\-\-'
 t_llave_de_cierre=r'\}'
 t_parentesis_de_inicio=r'\('
 t_parentesis_de_cierre=r'\)'
+t_operador_y = r'\&\&'
+t_negacion = r'\!'
+t_distinto=r'\!='
+t_operador_o = r'\|{2}'
 
 def t_bool(token):
     r'true|false'
@@ -98,8 +104,9 @@ def identificar_tokens(analizador,txt):
     print("\n")
     imprimir_tabla(tabla_simbolos)
 if __name__ == '__main__':
+    ##descomentar para testear con otro archivo de c#
     ##identificar_tokens(analizador,'./test/test.cs')
-    identificar_tokens(analizador,'./test/test1.cs')
-    ##identificar_tokens(analizador,'./test/test2.cs')
+    ##identificar_tokens(analizador,'./test/test1.cs')
+    identificar_tokens(analizador,'./test/test2.cs')
     print('\n')
     

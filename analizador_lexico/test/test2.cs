@@ -6,7 +6,7 @@ class Cadena
         // Comentario de línea de prueba
         string cadena = "Esto Es Una Prueba";
         bool contieneA = cadena.contains("a"); // Variable booleana
-        if (contieneA)
+        if (contieneA != contieneA)
         {
             Console.WriteLine("La cadena contiene 'a'");
             return;
