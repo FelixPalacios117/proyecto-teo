@@ -1,16 +1,17 @@
 using System;
-class Cadena
+class Prueba1
 {
+    // Comentario de línea de prueba
     static void Main()
     {
-        // Comentario de línea de prueba
-        string cadena = "Esto Es Una Prueba";
-        bool contieneA = cadena.contains("a"); // Variable booleana
-        if (contieneA != contieneA)
+        /* Comentario de múltiples líneas de
+           prueba */
+        int numero = 5;
+        if (numero >= 0)
         {
-            Console.WriteLine("La cadena contiene 'a'");
+            Console.WriteLine("El número es mayor o igual a cero");
             return;
         }
-        Console.WriteLine("La cadena no contiene 'a'");
+        Console.WriteLine("El número es negativo.");
     }
 }
