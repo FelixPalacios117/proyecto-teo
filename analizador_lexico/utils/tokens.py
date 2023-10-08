@@ -8,6 +8,7 @@ tokens=[
     'int',
     'double',
     'punto',
+    'modulo',
     'palabra_reservada',
     'return',
     'comentario',
