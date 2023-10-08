@@ -105,8 +105,9 @@ def identificar_tokens(analizador,txt):
     imprimir_tabla(tabla_simbolos)
 if __name__ == '__main__':
     ##descomentar para testear con otro archivo de c#
-    ##identificar_tokens(analizador,'./test/test.cs')
+    identificar_tokens(analizador,'./test/test.cs')
     ##identificar_tokens(analizador,'./test/test1.cs')
-    identificar_tokens(analizador,'./test/test2.cs')
+    ##identificar_tokens(analizador,'./test/test2.cs')
     print('\n')
+    input("Presiona enter para salir")
     
