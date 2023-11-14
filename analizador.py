@@ -20,10 +20,8 @@ def t_error(token):
     return token
     
 if __name__ == '__main__':
-    ##descomentar para testear con otro archivo de c#
-    ##identificar_tokens(analizador,'./test/test3.cs')
-    ##identificar_tokens(analizador,'./test/test1.cs')
-    #identificar_tokens(analizador,'./test/test2.cs')
+    ##descomentar para testear con otro archivo de c
+    ##identificar_tokens(analizador,'./test/test.c')
     print('\n')
     input("Presiona enter para salir")
     
