@@ -15,7 +15,7 @@ t_ignore  = ' \t'
 
 #Manejo de errores
 def t_error(token):
-    print("Illegal character '%s'" % t.value[0])
+    print("Illegal character '%s'" % token.value[0])
     token.lexer.skip(1)    
     return token
     
