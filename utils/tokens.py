@@ -7,12 +7,17 @@ tokens=[
     'int',
     'char',
     'float',
-    'char',
     'puntocoma',
+    'if',
     'coma',
     'asignacion',
     'number',
     'double',
     'vacia',
-    'character'
+    'character',
+    'parenizq',
+    'aritmetico',
+    'parender',
+    'llaveder',
+    'llaveizq'
 ]
