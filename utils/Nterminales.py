@@ -8,3 +8,4 @@ E=6 #Expresiones
 AR=7 #Exp aritmeticas
 B=8 #Bloque de codigo
 C=9 #Control
+OL=10 # Op logico

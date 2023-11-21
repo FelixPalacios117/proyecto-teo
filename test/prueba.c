@@ -1,7 +1,19 @@
-
-if (b <= c){
-
+int a, b = 0;
+if (b == c)
+{
 }
-/* {
-    a = 4;
-} */
+else
+{
+    a = 0;
+}
+if (b < a)
+{
+    int c = 0;
+    c = 2;
+    char p = 'c';
+    float s = 2.9;
+}
+else
+{
+    s=2.9;
+}

@@ -9,6 +9,7 @@ tokens=[
     'float',
     'puntocoma',
     'if',
+    'else',
     'coma',
     'asignacion',
     'number',
@@ -19,5 +20,6 @@ tokens=[
     'aritmetico',
     'parender',
     'llaveder',
-    'llaveizq'
+    'llaveizq',
+    'logico'
 ]

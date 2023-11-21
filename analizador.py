@@ -13,10 +13,12 @@ t_asignacion = r"\="
 t_coma = r"\,"
 t_parenizq = r'\('
 t_parender = r'\)'
-t_aritmetico = r'(>=)|(<=)|(<(?!<))|(>(?!>))'
+t_logico = r'(==)|(<(?!<))|(>(?!>))'
 t_llaveizq = r'\{'
 # t_vacia= r'\'
 t_llaveder = r'\}'
+
+
 def t_character(t):
     r"'.'"
     return t
