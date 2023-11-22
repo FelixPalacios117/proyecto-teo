@@ -14,7 +14,7 @@ t_coma = r"\,"
 t_parenizq = r'\('
 t_parender = r'\)'
 t_logico = r'(<=)|(<(?!<))|(>(?!>))'
-t_for_or=r'\+\+|--'
+t_for_or = r'\+\+|--'
 t_llaveizq = r'\{'
 # t_vacia= r'\'
 t_llaveder = r'\}'
@@ -50,9 +50,13 @@ def t_int(t):
 def t_if(t):
     r"(if)"
     return t
+
+
 def t_for(t):
     r"(for)"
     return t
+
+
 def t_else(t):
     r"(else)"
     return t
@@ -67,6 +71,9 @@ def t_char(token):
     r"(char)"
     return token
 
+def t_void(token):
+    r"(void)"
+    return token
 
 def t_identificador(token):
     r"([a-z]|[A-Z]|_)([a-z]|[A-Z]|\d|_)*"
@@ -82,7 +89,9 @@ def t_comentario(t):
     r"\/\/.*"
     pass
 
-#linea de comentario
+# linea de comentario
+
+
 def t_comentario_bloque(token):
     r'\/\*[\s\S]*?\*\/'
     pass

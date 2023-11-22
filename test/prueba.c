@@ -1,20 +1,25 @@
- int a, b = 0;
-
- for (int a = 0; a < 2; a++)
+// int a, b = 0;
+int x(int, char, float);
+int x();
+void a();
+/* int main(){
+}
+ */
+/* for (int a = 0; a < 2; a++)
 {
     for (int b = 0; b < 3; b--)
     {
         for (int c = 0; c < 3; c--)
         {
-            a=0;
+            a = 0;
         }
     }
-    a=0;
-} 
-for(int a=0;a<20;a++){
-    
+    a = 0;
 }
-/* if (b <= c)
+for (int a = 0; a < 20; a++)
+{
+}
+if (b <= c)
 {
 
 }

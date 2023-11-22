@@ -23,5 +23,6 @@ tokens=[
     'for_or',
     'for',
     'llaveizq',
-    'logico'
+    'logico',
+    'void'
 ]
