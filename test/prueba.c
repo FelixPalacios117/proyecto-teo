@@ -1,5 +1,10 @@
-int a, b = 0;
-if (b == c)
+/*int a, b = 0;
+asas*/
+
+for (int a = 0; a < 2; a++)
+{
+}
+/* if (b <= c)
 {
 }
 else
@@ -16,4 +21,4 @@ if (b < a)
 else
 {
     s = 2.9;
-}
+} */

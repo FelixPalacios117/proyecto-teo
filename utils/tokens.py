@@ -20,6 +20,8 @@ tokens=[
     'aritmetico',
     'parender',
     'llaveder',
+    'for_or',
+    'for',
     'llaveizq',
     'logico'
 ]

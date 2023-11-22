@@ -9,3 +9,4 @@ AR=7 #Exp aritmeticas
 B=8 #Bloque de codigo
 C=9 #Control
 OL=10 # Op logico
+BU=11 #Bucles
