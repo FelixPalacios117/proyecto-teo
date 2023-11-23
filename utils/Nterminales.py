@@ -11,4 +11,5 @@ C=9 #Control
 OL=10 # Op logico
 BU=11 #Bucles
 FU=12 #funciones
+FUI=13 #tipo funciones
 TI=13 #tipo de dato

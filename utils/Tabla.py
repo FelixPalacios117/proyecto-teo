@@ -9,7 +9,7 @@ tablaLL1 = [
     [S, 'char', ['char', I, F]],
     [S, 'float', ['float', I, F]],
     [S, 'void', ['void', I, F]],
-    [S, 'identificador', [I, F, S]],
+    [S, 'identificador', [I, F]],
     [S, 'if', [K]],
     [S, 'llaveder', ['llaveder']],
     [S, 'for', ['for', B]],
