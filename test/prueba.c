@@ -4,10 +4,11 @@ b = 0;\*/
 
 int main(int a, int z, float k)
 {
+    char b='c';
     int a, b = 0;
     for (int i = 0; i < 2; i++)
     {
-        ++
+ 
         for (int k = 0; k < 2; k++)
         {
             int a = 0;

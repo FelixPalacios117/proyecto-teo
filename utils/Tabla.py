@@ -1,15 +1,17 @@
 from utils.Nterminales import *
 # bug int a,
-#pendiente if, macros, inclusion, operacion de aritmeticos y revisar bien errores
+# pendiente if, macros, inclusion, operacion de aritmeticos y revisar bien errores
 tablaLL1 = [
     [S, 'int', ['int', I, S]],
     [S, 'float', ['float', I, S]],
+    [S, 'char', ['char', I, S]],
     [S, 'asignacion', None],
     [S, 'identificador', [I, S]],
     [S, 'eof', ['eof']],
     [S, 'puntocoma', None],
     [S, 'llaveder', ['llaveder']],
     [S, 'llaveizq', None],
+    [S, 'else', None],
     [S, 'coma', None],
     [S, 'for_or', None],
     [S, 'for', ['for', BU]],
@@ -45,12 +47,14 @@ tablaLL1 = [
     [F, 'parender', ['parender', 'llaveizq', B, S]],  # funcion
     [B, 'int', ['int', 'identificador', A, B]],
     [B, 'float', ['float', 'identificador', A, B]],
+    [B, 'char', ['char', 'identificador', A, B]],
     [B, 'identificador', ['identificador', A, B]],
     [B, 'llaveder', ['llaveder']],
     [B, 'for', ['for', BU]],
     [B, 'eof', None],
     [T, 'number', ['number']],
     [T, 'double', ['double']],
+    [T, 'character', ['character']],
     [T, 'int', None],
     [T, 'char', None],
     [T, 'float', None],
