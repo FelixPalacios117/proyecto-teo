@@ -7,7 +7,12 @@ tablaLL1 = [
     [S, 'identificador', [I, S]],
     [S, 'eof', ['eof']],
     [S, 'puntocoma', None],
+    [S, 'llaveder', ['llaveder']],
     [S, 'coma', None],
+    [S, 'for', ['for', BU]],
+    [BU, 'for', None],
+    [BU, 'int', None],
+    [BU, 'parenizq', ['parenizq', E]],  # for
     # [I, 'identificador', ['identificador', A, S]],#
     [I, 'identificador', ['identificador', A]],
     [I, 'asignacion', None],
@@ -19,6 +24,8 @@ tablaLL1 = [
     [A, 'coma', ['coma', I]],
     [A, 'puntocoma', ['puntocoma']],
     [E, 'parender', [F]],  # funcion
+    [E, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
+                'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],
     # [E, 'identificador', ['identificador', OL, 'identificador', F]],  # if
     # parametros de funcion
     [E, 'int', ['int', 'identificador', E]],
@@ -30,6 +37,8 @@ tablaLL1 = [
     [B, 'float', ['float', 'identificador', A, B]],
     [B, 'identificador', ['identificador', A, B]],
     [B, 'llaveder', ['llaveder']],
+    [B, 'for', ['for', BU]],
+    [B, 'eof', None],
     [T, 'number', ['number']],
     [T, 'double', ['double']],
     [T, 'int', None],
