@@ -24,9 +24,11 @@ tablaLL1 = [
     [E, 'int', ['int', 'identificador', E]],
     [E, 'coma', ['coma', E]],
     [E, 'float', ['float', 'identificador', E]],
+    [E, 'char', ['char', 'identificador', E]],
     [F, 'parender', ['parender', 'llaveizq', B, S]],  # funcion
     [B, 'int', ['int', 'identificador', A, B]],
     [B, 'float', ['float', 'identificador', A, B]],
+    [B, 'identificador', ['identificador', A, B]],
     [B, 'llaveder', ['llaveder']],
     [T, 'number', ['number']],
     [T, 'double', ['double']],
