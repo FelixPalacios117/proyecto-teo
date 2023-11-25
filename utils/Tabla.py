@@ -19,12 +19,19 @@ tablaLL1 = [
     [A, 'coma', ['coma', I]],
     [A, 'puntocoma', ['puntocoma']],
     [E, 'parender', [F]],  # funcion
-    [E, 'identificador', ['identificador', OL, 'identificador', F]],  # funcion
+    # [E, 'identificador', ['identificador', OL, 'identificador', F]],  # if
+    # parametros de funcion
+    [E, 'int', ['int', 'identificador', E]],
+    [E, 'coma', ['coma', E]],
+    [E, 'float', ['float', 'identificador', E]],
     [F, 'parender', ['parender', 'llaveizq', B, S]],  # funcion
     [B, 'int', ['int', 'identificador', A, B]],
     [B, 'float', ['float', 'identificador', A, B]],
     [B, 'llaveder', ['llaveder']],
     [T, 'number', ['number']],
     [T, 'double', ['double']],
+    [T, 'int', None],
+    [T, 'char', None],
+    [T, 'float', None],
     [OL, 'logico', ['logico']],  # funcion
 ]

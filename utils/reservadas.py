@@ -8,6 +8,4 @@ reservadas = {
     'void': 'VOID',
     'include': 'INCLUDE',
     'define': 'DEFINE',
-    'scanf': 'SCANF',
-    'printf': 'PRINTF'
 }
