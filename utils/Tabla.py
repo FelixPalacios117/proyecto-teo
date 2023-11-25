@@ -1,5 +1,5 @@
 from utils.Nterminales import *
-
+#bug int a, 
 tablaLL1 = [
     [S, 'int', ['int', I, S]],
     [S, 'float', ['float', I, S]],
@@ -12,20 +12,24 @@ tablaLL1 = [
     [S, 'for', ['for', BU]],
     [BU, 'for', None],
     [BU, 'int', None],
-    [BU, 'parenizq', ['parenizq', E]],  # for
+    [BU, 'parenizq', ['parenizq', EF]],  # for
+    [EF, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
+                 'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],  # for]
     # [I, 'identificador', ['identificador', A, S]],#
     [I, 'identificador', ['identificador', A]],
     [I, 'asignacion', None],
     [I, 'float', None],
     [I, 'int', None],
-    [I, 'eof', ['eof', S]],  # ya veremos
+    [I, 'coma', None],
+    [I, 'puntocoma', None],
+    [I, 'eof', None],
+    # [I, 'eof', ['eof', S]],  # ya veremos
     [A, 'asignacion', ['asignacion', T, A]],
     [A, 'parenizq', ['parenizq', E]],  # funcion
     [A, 'coma', ['coma', I]],
     [A, 'puntocoma', ['puntocoma']],
     [E, 'parender', [F]],  # funcion
-    [E, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
-                'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],
+
     # [E, 'identificador', ['identificador', OL, 'identificador', F]],  # if
     # parametros de funcion
     [E, 'int', ['int', 'identificador', E]],
