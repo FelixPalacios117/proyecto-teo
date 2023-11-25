@@ -1,6 +1,6 @@
 from utils.Nterminales import *
 # bug int a,
-#pendiente if, macros, inclusion, operacion de aritmeticos y revisas bien errores
+#pendiente if, macros, inclusion, operacion de aritmeticos y revisar bien errores
 tablaLL1 = [
     [S, 'int', ['int', I, S]],
     [S, 'float', ['float', I, S]],
