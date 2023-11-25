@@ -13,3 +13,4 @@ BU=11 #Bucles
 FU=12 #funciones
 FUI=13 #tipo funciones
 TI=13 #tipo de dato
+IN=14 #enteros
