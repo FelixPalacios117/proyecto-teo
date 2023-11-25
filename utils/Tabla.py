@@ -1,5 +1,6 @@
 from utils.Nterminales import *
-#bug int a, 
+# bug int a,
+#pendiente if, macros, inclusion, operacion de aritmeticos y revisas bien errores
 tablaLL1 = [
     [S, 'int', ['int', I, S]],
     [S, 'float', ['float', I, S]],
@@ -8,8 +9,12 @@ tablaLL1 = [
     [S, 'eof', ['eof']],
     [S, 'puntocoma', None],
     [S, 'llaveder', ['llaveder']],
+    [S, 'llaveizq', None],
     [S, 'coma', None],
+    [S, 'for_or', None],
     [S, 'for', ['for', BU]],
+    [S, 'parender', None],
+    [S, 'parenizq', None],
     [BU, 'for', None],
     [BU, 'int', None],
     [BU, 'parenizq', ['parenizq', EF]],  # for
@@ -22,7 +27,8 @@ tablaLL1 = [
     [I, 'int', None],
     [I, 'coma', None],
     [I, 'puntocoma', None],
-    [I, 'eof', None],
+    [I, 'logico', None],
+    # [I, 'eof', [S]],
     # [I, 'eof', ['eof', S]],  # ya veremos
     [A, 'asignacion', ['asignacion', T, A]],
     [A, 'parenizq', ['parenizq', E]],  # funcion
