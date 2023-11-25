@@ -1,5 +1,6 @@
-int a;
-=
-a;
-=
-//int a=0,c;
+int a=0,b=0;
+float c=0,k=0,p;
+b=0;
+int main(){
+    int a,b;
+}

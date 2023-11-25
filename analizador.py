@@ -126,9 +126,11 @@ def parser(txt):
     errorFlag = False
     x = stack[-1]  # primer elemento de der a izq
     while True:
-        #print(tok.type)
-        #print(x)
+        print(tok)
+        print(x)
         if x == tok.type and x == 'eof':
+            print(stack.__len__())
+            print(stack)
             print("\nAnálisis sintáctico terminado con errores\n") if errorFlag else print("\nAnálisis sintáctico terminado correctamente\n")
             #print("Cadena reconocida exitosamente")
             return  # aceptar
