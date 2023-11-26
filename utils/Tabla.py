@@ -6,6 +6,41 @@ from utils.Nterminales import *
 # funcion void
 # macros, inclusion, operacion de aritmeticos y revisar bien errores
 tablaLL1 = [
+    # inclusion
+    [S, 'int', ['int', I, S]],
+    [S, 'float', ['float', I, S]],
+    [S, 'char', ['char', I, S]],
+    [S, 'asignacion', None],
+    [S, 'define', ['define', ID, S]],
+    [S, 'include', ['include', S]],
+    [S, 'identificador', [I, S]],
+    [S, 'eof', ['eof']],
+    [S, 'puntocoma', None],
+    [S, 'llaveder', ['llaveder']],
+    [S, 'if', ['if', C, S]],
+    [S, 'llaveizq', None],
+    [S, 'else', None],
+    [S, 'coma', None],
+    [S, 'for_or', None],
+    [S, 'for', ['for', BU]],
+    [S, 'parender', None],
+    [S, 'parenizq', None],
+    # identificadores
+    [I, 'identificador', ['identificador', A]],
+    [I, 'include', None],
+    [I, 'asignacion', None],
+    [I, 'float', None],
+    [I, 'int', None],
+    [I, 'coma', None],
+    [I, 'puntocoma', None],
+    [I, 'logico', None],
+    # asignar
+    [A, 'asignacion', ['asignacion', T, A]],
+    [A, 'parenizq', ['parenizq', E]],  # funcion
+    [A, 'coma', ['coma', I]],
+    [A, 'puntocoma', ['puntocoma']],
+    [A, 'include', None],
+    # definicion macros para constantes simbolicas
     [ID, 'identificador', ['identificador', T]],
     [ID, 'int', None],
     [ID, 'float', None],
@@ -28,23 +63,6 @@ tablaLL1 = [
     [ID, 'double', None],
     [ID, 'void', None],
     [ID, 'puntocoma', None],
-    [S, 'int', ['int', I, S]],
-    [S, 'float', ['float', I, S]],
-    [S, 'char', ['char', I, S]],
-    [S, 'asignacion', None],
-    [S, 'define', ['define', ID, S]],
-    [S, 'identificador', [I, S]],
-    [S, 'eof', ['eof']],
-    [S, 'puntocoma', None],
-    [S, 'llaveder', ['llaveder']],
-    [S, 'if', ['if', C, S]],
-    [S, 'llaveizq', None],
-    [S, 'else', None],
-    [S, 'coma', None],
-    [S, 'for_or', None],
-    [S, 'for', ['for', BU]],
-    [S, 'parender', None],
-    [S, 'parenizq', None],
     [C, 'parenizq', ['parenizq', EI, 'parender', 'llaveizq', B, EL, S]],  # if
     [C, 'for', None],
     [C, 'if', None],
@@ -67,19 +85,10 @@ tablaLL1 = [
     [EF, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
                  'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],  # for]
     # [I, 'identificador', ['identificador', A, S]],#
-    [I, 'identificador', ['identificador', A]],
-    [I, 'asignacion', None],
-    [I, 'float', None],
-    [I, 'int', None],
-    [I, 'coma', None],
-    [I, 'puntocoma', None],
-    [I, 'logico', None],
+
     # [I, 'eof', [S]],
     # [I, 'eof', ['eof', S]],  # ya veremos
-    [A, 'asignacion', ['asignacion', T, A]],
-    [A, 'parenizq', ['parenizq', E]],  # funcion
-    [A, 'coma', ['coma', I]],
-    [A, 'puntocoma', ['puntocoma']],
+
     # [E, 'parender', [F]],  # funcion
 
     # [E, 'identificador', ['identificador', OL, 'identificador', F]],  # if

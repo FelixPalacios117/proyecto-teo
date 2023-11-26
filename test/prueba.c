@@ -1,7 +1,6 @@
+#include <iostream>
 
-#define i 9
-int a=0;
-/* int a = 0, b = 0;
+int a = 0, b = 0;
 float c = 0, k = 0, p;
 b = 0;
 int a(int, float, char);
@@ -26,7 +25,7 @@ int main(int a, int z, float k)
         for (int k = 0; k < 2; k++)
         {
             int a = 0;
-            a = 0;
+            w= 0;
         }
     }
-} */
+} 

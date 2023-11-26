@@ -29,6 +29,10 @@ def t_character(t):
 def t_define(t):
     r"\#define"
     return t
+
+def t_include(t):
+    r'\#include\s*[<"][^>"]+[>"]'
+    return t
 def t_newline(t):
     r"\n+"
     t.lexer.lineno += len(t.value)
@@ -142,17 +146,21 @@ def parser(txt):
                 x = stack[-1]
                 tok = lexer.token()
             if x in tokens and x != tok.type:
-                print(tok)
-                print(x)
+                #print(tok)
+                #print(x)
                 print("\nError: se esperaba ", tok.type)
                 print('en la posicion: ', tok.lexpos)
                 print("en la línea: ", tok.lineno)
-                errorFlag = True
+                while True :
+                    tok = lexer.token()
+                    if tok.type == x :
+                        break 
+                """ errorFlag = True
                 stack.pop()
                 if(len(stack) != 0):
                     x = stack[-1]
                 else:
-                    return 0
+                    return 0  """
                 #return 0
             if x not in tokens:  # es no terminal
                 print("van entrar a la tabla:")
@@ -164,13 +172,14 @@ def parser(txt):
                     print('en la posicion: ', tok.lexpos)
                     print("en la línea: ", tok.lineno)
                     errorFlag = True
-                    stack.pop()
-                    if(len(stack) != 0):
+                    #tok = lexer.token()
+                    #stack.pop()
+                    """ if(len(stack) != 0):
                         x = stack[-1]
-                        #tok = lexer.token() #thiss
+                        tok = lexer.token() #thiss
                     else:
-                        return 0
-                    #return 0
+                        return 0 """
+                    return 0
                 else:
                     stack.pop()
                     agregar_pila(celda)
