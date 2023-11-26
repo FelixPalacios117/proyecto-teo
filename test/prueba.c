@@ -1,16 +1,16 @@
 #include <iostream>
-
 int a = 0, b = 0;
 float c = 0, k = 0, p;
 b = 0;
 int a(int, float, char);
 char l(int, char, float);
 int a;
+if(a<0)
 int b(int a, int z)
 {
     int a;
 }
-int main(int a, int z, float k)
+/* int main(int a, int z, float k)
 {
     if (f < l)
     {
@@ -28,4 +28,4 @@ int main(int a, int z, float k)
             w= 0;
         }
     }
-} 
+}  */
