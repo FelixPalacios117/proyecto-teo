@@ -4,9 +4,8 @@ A=2 #Asignaciones
 T=3 #Tipos de dato 
 F=4 #Finales
 E=5 #Expresiones
-AR=7 #Exp aritmeticas
-B=8 #Bloque de codigo
-C=9 #Control
+B=6 #Bloque de codigo
+C=7 #Control
 OL=10 # Op logico
 BU=11 #Bucles
 FU=12 #funciones
@@ -18,3 +17,5 @@ EL=16 #ELSE
 DF=17 #Declaracion de funciones
 DFP=18 #params de funciones
 ID=19 #macros y def
+
+AR=20 #Exp aritmeticas
