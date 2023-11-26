@@ -250,6 +250,7 @@ tablaLL1 = [
     [EL, 'define', None],
     [EL, 'include', None],
     [EL, 'void', None],
+    #hasta aca por el momento
     # definicion macros para constantes simbolicas
     [ID, 'identificador', ['identificador', T]],
     [ID, 'int', None],
