@@ -1,12 +1,38 @@
 from utils.Nterminales import *
+# declaracion de funciones ok
+# pendiente if ok,
 # bug int a,
-# declaracion de funciones
-# pendiente if, macros, inclusion, operacion de aritmeticos y revisar bien errores
+# return
+# funcion void
+# macros, inclusion, operacion de aritmeticos y revisar bien errores
 tablaLL1 = [
+    [ID, 'identificador', ['identificador', T]],
+    [ID, 'int', None],
+    [ID, 'float', None],
+    [ID, 'eof', None],
+    [ID, 'char', None],
+    [ID, 'for', None],
+    [ID, 'if', None],
+    [ID, 'else', None],
+    [ID, 'asignacion', None],
+    [ID, 'define', None],
+    [ID, 'llaveizq', None],
+    [ID, 'llaveder', None],
+    [ID, 'parender', None],
+    [ID, 'parenizq', None],
+    [ID, 'coma', None],
+    [ID, 'for_or', None],
+    [ID, 'logico', None],
+    [ID, 'number', None],
+    [ID, 'character', None],
+    [ID, 'double', None],
+    [ID, 'void', None],
+    [ID, 'puntocoma', None],
     [S, 'int', ['int', I, S]],
     [S, 'float', ['float', I, S]],
     [S, 'char', ['char', I, S]],
     [S, 'asignacion', None],
+    [S, 'define', ['define', ID, S]],
     [S, 'identificador', [I, S]],
     [S, 'eof', ['eof']],
     [S, 'puntocoma', None],
@@ -54,14 +80,31 @@ tablaLL1 = [
     [A, 'parenizq', ['parenizq', E]],  # funcion
     [A, 'coma', ['coma', I]],
     [A, 'puntocoma', ['puntocoma']],
-    [E, 'parender', [F]],  # funcion
+    # [E, 'parender', [F]],  # funcion
 
     # [E, 'identificador', ['identificador', OL, 'identificador', F]],  # if
     # parametros de funcion
-    [E, 'int', ['int', 'identificador', E]],
+    [E, 'int', ['int', EF]],
     [E, 'coma', ['coma', E]],
-    [E, 'float', ['float', 'identificador', E]],
-    [E, 'char', ['char', 'identificador', E]],
+    [E, 'float', ['float', EF]],
+    [E, 'char', ['char', EF]],
+    [EF, 'coma', ['coma', TI, EF]],
+    [EF, 'identificador', ['identificador', DF]],
+    [EF, 'parender', ['parender', 'puntocoma', S]],
+    [DF, 'coma', ['coma', TI, 'identificador', DF]],
+    [DF, 'parender', [F]],
+    [DF, 'int', None],
+    [DF, 'float', None],
+    [DF, 'char', None],
+    [DF, 'identificador', None],
+    [DF, 'llaveizq', None],
+    [DF, 'llaveder', None],
+    [TI, 'int', ['int']],
+    [TI, 'char', ['char']],
+    [TI, 'float', ['float']],
+    [TI, 'for', None],
+    [TI, 'if', None],
+    [TI, 'identificador', None],
     [F, 'parender', ['parender', 'llaveizq', B, S]],  # funcion
     [B, 'int', ['int', 'identificador', A, B]],
     [B, 'float', ['float', 'identificador', A, B]],
@@ -77,5 +120,6 @@ tablaLL1 = [
     [T, 'int', None],
     [T, 'char', None],
     [T, 'float', None],
+    [T, 'eof', None],
     [OL, 'logico', ['logico']],  # funcion
 ]

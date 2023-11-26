@@ -26,7 +26,9 @@ def t_character(t):
     r"'.'"
     return t
 
-
+def t_define(t):
+    r"\#define"
+    return t
 def t_newline(t):
     r"\n+"
     t.lexer.lineno += len(t.value)
@@ -165,7 +167,7 @@ def parser(txt):
                     stack.pop()
                     if(len(stack) != 0):
                         x = stack[-1]
-                        #tok = lexer.token() thiss
+                        #tok = lexer.token() #thiss
                     else:
                         return 0
                     #return 0

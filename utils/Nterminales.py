@@ -16,3 +16,6 @@ TI=13 #tipo de dato
 EF=14#Exp for
 EI=15 #exp if
 EL=16 #ELSE
+DF=17 #Declaracion de funciones
+DFP=18 #params de funciones
+ID=19 #macros y def

@@ -25,5 +25,6 @@ tokens=[
     'llaveizq',
     'logico',
     'void',
-    'include'
+    'include',
+    'define'
 ]

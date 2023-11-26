@@ -1,12 +1,16 @@
+
+#define i 9
+int a=0;
 /* int a = 0, b = 0;
 float c = 0, k = 0, p;
-b = 0;\*/
-/* if (a < l)
+b = 0;
+int a(int, float, char);
+char l(int, char, float);
+int a;
+int b(int a, int z)
 {
-
-}else{
-
-} */
+    int a;
+}
 int main(int a, int z, float k)
 {
     if (f < l)
@@ -24,5 +28,5 @@ int main(int a, int z, float k)
             int a = 0;
             a = 0;
         }
-    } 
-}
+    }
+} */
