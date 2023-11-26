@@ -205,7 +205,7 @@ tablaLL1 = [
     [EI, 'coma', None],
     [EI, 'puntocoma', None],
     [EI, 'include', None],
-    #Operador logico
+    # Operador logico
     [OL, 'logico', ['logico']],  # funcion
     [OL, 'parender', None],
     [OL, 'identificador', None],
@@ -228,6 +228,28 @@ tablaLL1 = [
     [OL, 'coma', None],
     [OL, 'puntocoma', None],
     [OL, 'include', None],
+    [EL, 'if', ['if', C]],
+    [EL, 'else', ['else', 'llaveizq', B, S]],
+    [EL, 'llaveder', ['llaveder']],
+    [EL, 'char', [S]],
+    [EL, 'int', [S]],
+    [EL, 'float', [S]],
+    [EL, 'for', [S]],
+    [EL, 'eof', ['eof']],  # [EL, 'eof', None],
+    [EL, 'llaveizq', None],
+    [EL, 'number', None],
+    [EL, 'character', None],
+    [EL, 'double', None],
+    [EL, 'parender', None],
+    [EL, 'parenizq', None],
+    [EL, 'identificador', None],
+    [EL, 'puntocoma', None],
+    [EL, 'coma', None],
+    [EL, 'logico', None],
+    [EL, 'for_or', None],
+    [EL, 'define', None],
+    [EL, 'include', None],
+    [EL, 'void', None],
     # definicion macros para constantes simbolicas
     [ID, 'identificador', ['identificador', T]],
     [ID, 'int', None],
@@ -253,14 +275,7 @@ tablaLL1 = [
     [ID, 'puntocoma', None],
 
 
-    [EL, 'if', ['if', C]],
-    [EL, 'else', ['else', 'llaveizq', B, S]],
-    [EL, 'llaveder', ['llaveder']],
-    [EL, 'char', [S]],
-    [EL, 'int', [S]],
-    [EL, 'float', [S]],
-    [EL, 'for', [S]],
-    [EL, 'eof', ['eof']],
+
     [BU, 'for', None],
     [BU, 'int', None],
     [BU, 'parenizq', ['parenizq', EF]],  # for

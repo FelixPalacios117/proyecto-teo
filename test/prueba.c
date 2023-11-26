@@ -5,7 +5,6 @@ b = 0;
 int a(int, float, char);
 char l(int, char, float);
 int a;
-if(a<0)
 int b(int a, int z)
 {
     int a;
