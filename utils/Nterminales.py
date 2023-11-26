@@ -6,13 +6,14 @@ F=4 #Finales
 E=5 #Expresiones
 B=6 #Bloque de codigo
 C=7 #Control
+EI=8 #exp if
 OL=10 # Op logico
 BU=11 #Bucles
 FU=12 #funciones
 FUI=13 #tipo funciones
 TI=13 #tipo de dato
 EF=14#Exp for
-EI=15 #exp if
+
 EL=16 #ELSE
 DF=17 #Declaracion de funciones
 DFP=18 #params de funciones
