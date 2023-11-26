@@ -1,10 +1,12 @@
 from utils.Nterminales import *
 # declaracion de funciones ok
 # pendiente if ok,
+# macros ok, inclusion ok, 
+#pendiente
+# operacion de aritmeticos y revisar bien errores
 # bug int a,
 # return
 # funcion void
-# macros, inclusion, operacion de aritmeticos y revisar bien errores
 tablaLL1 = [
     # inclusion
     [S, 'int', ['int', I, S]],
