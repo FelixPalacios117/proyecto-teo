@@ -165,7 +165,7 @@ def parser(txt):
                     stack.pop()
                     if(len(stack) != 0):
                         x = stack[-1]
-                        tok = lexer.token()
+                        #tok = lexer.token() thiss
                     else:
                         return 0
                     #return 0

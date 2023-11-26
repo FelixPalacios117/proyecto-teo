@@ -10,6 +10,7 @@ tablaLL1 = [
     [S, 'eof', ['eof']],
     [S, 'puntocoma', None],
     [S, 'llaveder', ['llaveder']],
+    [S, 'if', ['if', C, S]],
     [S, 'llaveizq', None],
     [S, 'else', None],
     [S, 'coma', None],
@@ -17,9 +18,20 @@ tablaLL1 = [
     [S, 'for', ['for', BU]],
     [S, 'parender', None],
     [S, 'parenizq', None],
+    [C, 'parenizq', ['parenizq', EI, 'parender', 'llaveizq', B, EL, S]],  # if
+    [C, 'for', None],
+    [C, 'if', None],
+    [C, 'parenizq', [S]],
+    [C, 'eof', None],
+    [EI, 'parender', None],
+    [EI, 'identificador', ['identificador', OL, 'identificador']],
+    [EL, 'if', ['if', C]],
+    [EL, 'else', ['else', 'llaveizq', B, S]],
+    [EL, 'eof', ['eof']],
     [BU, 'for', None],
     [BU, 'int', None],
     [BU, 'parenizq', ['parenizq', EF]],  # for
+    # [BU, 'eof', ['eof']],
     [EF, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
                  'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],  # for]
     # [I, 'identificador', ['identificador', A, S]],#

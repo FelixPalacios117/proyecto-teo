@@ -14,3 +14,5 @@ FU=12 #funciones
 FUI=13 #tipo funciones
 TI=13 #tipo de dato
 EF=14#Exp for
+EI=15 #exp if
+EL=16 #ELSE
