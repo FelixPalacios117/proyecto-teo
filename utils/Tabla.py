@@ -150,7 +150,7 @@ tabla = [
     [A, 'return', None],
     [A, 'eof', None],
     [A, 'define', None],
-    [A, 'aritmetico', None]
+    [A, 'aritmetico', None],
     # tipos de datos
     [T, 'number', ['number']],
     [T, 'double', ['double']],
@@ -204,6 +204,13 @@ tabla = [
     [F, 'void', None],
     [F, 'puntocoma', None],
     [F, 'identificador', None],
+    [F, 'suma', None],
+    [F, 'resta', None],
+    [F, 'multiplicacion', None],
+    [F, 'division', None],
+    [F, 'aritmetico', None],
+    [F, 'include', None],
+    [F, 'return', None],
     # usado en parametros de funciones
     [E, 'int', ['int', EF]],
     [E, 'coma', ['coma', E]],
@@ -227,6 +234,13 @@ tabla = [
     [E, 'void', None],
     [E, 'puntocoma', None],
     [E, 'identificador', None],
+    [E, 'include', None],
+    [E, 'suma', None],
+    [E, 'resta', None],
+    [E, 'division', None],
+    [E, 'multiplicacion', None],
+    [E, 'aritmetico', None],
+    [E, 'return', None],
     # Bloques usados en funciones, if, for
     [R, 'puntocoma', ['puntocoma']],
     [R, 'identificador', ['identificador', 'puntocoma']],
