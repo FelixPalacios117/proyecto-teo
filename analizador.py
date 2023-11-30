@@ -2,7 +2,7 @@ import ply.lex as lex
 from utils.reservadas import *
 from utils.tokens import *
 from utils.Nterminales import *  # No terminales
-from utils.Tabla import tablaLL1
+from utils.Tabla import tabla
 
 
 # fin del archivo
@@ -91,7 +91,9 @@ def t_void(token):
     r"(void)"
     return token
 
-
+def t_return(token):
+    r"(return)"
+    return token
 def t_identificador(token):
     r"([a-z]|[A-Z]|_)([a-z]|[A-Z]|\d|_)*"
     return token
@@ -117,10 +119,7 @@ def t_comentario_bloque(token):
 
 
 def t_error(token):
-    print("Illegal character '%s'" % token.value[0])
     token.lexer.skip(1)
-    return token
-
 
 stack = ["eof", 0]
 
@@ -196,14 +195,14 @@ def parser(txt):
 
 
 def buscar_en_tabla(no_terminal, terminal):
-    for i in range(len(tablaLL1)):
-        if tablaLL1[i][0] == no_terminal and tablaLL1[i][1] == terminal:
-            return tablaLL1[i][2]  # retorno la celda
+    for i in range(len(tabla)):
+        if tabla[i][0] == no_terminal and tabla[i][1] == terminal:
+            return tabla[i][2]  # retorno la celda
 
 
 def agregar_pila(produccion):
     for elemento in reversed(produccion):
-        if elemento != "vacia":  # la vacía no la inserta
+        if elemento != "vacia":  # se ignora la vacia
             stack.append(elemento)
 
 
@@ -212,4 +211,3 @@ if __name__ == "__main__":
     result = parser("./test/prueba.c")
     if result == 0:
         print("\nAnálisis sintáctico terminado con errores\n")
-    # input("Presiona enter para salir")

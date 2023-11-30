@@ -2,6 +2,7 @@ tokens=[
     'identificador',
     'suma',
     'resta',
+    'return',
     'multiplicacion',
     'eof',
     'int',

@@ -1,15 +1,9 @@
 from utils.Nterminales import *
-# declaracion de funciones ok
-# pendiente if ok,
-# macros ok, inclusion ok,
-# pendiente
-# operacion de aritmeticos y revisar bien errores
-# bug int a,
-# return
-# funcion void
-tablaLL1 = [
-    # inclusion
+# Tabla parser
+tabla = [
+    # Simbolo inicial
     [S, 'int', ['int', I, S]],
+    [S, 'return', [B]],
     [S, 'float', ['float', I, S]],
     [S, 'char', ['char', I, S]],
     [S, 'asignacion', None],
@@ -30,6 +24,13 @@ tablaLL1 = [
     [S, 'character', None],
     [S, 'number', ['number', AR, S]],
     [S, 'double', ['double', AR, S]],
+    [S, 'suma', None],
+    [S, 'division', None],
+    [S, 'multiplicacion', None],
+    [S, 'resta', None],
+    [S, 'aritmetico', None],
+    [S, 'logico', None],
+    [S, 'void', None],
     # identificadores
     [I, 'identificador', ['identificador', A]],
     [I, 'include', None],
@@ -52,7 +53,15 @@ tablaLL1 = [
     [I, 'if', None],
     [I, 'else', None],
     [I, 'void', None],
-    # asignar
+    [I, 'suma', None],
+    [I, 'resta', None],
+    [I, 'multiplicacion', None],
+    [I, 'division', None],
+    [I, 'aritmetico', None],
+    [I, 'define', None],
+    [I, 'return', None],
+    [I, 'eof', None],
+    #operaciones aritmeticas
     [AR, 'suma', ['suma', OPA, AR]],
     [AR, 'resta', ['resta', OPA, AR]],
     [AR, 'division', ['division', OPA, AR]],
@@ -62,10 +71,12 @@ tablaLL1 = [
     [AR, 'include', None],
     [AR, 'define', None],
     [AR, 'int', None],
+    
     [OPA, 'identificador', ['identificador']],
     [OPA, 'number', ['number']],
     [OPA, 'double', ['double']],
     [OPA, 'character', None],
+    # asignaciones
     [A, 'suma', [AR]],
     [A, 'resta', [AR]],
     [A, 'division', [AR]],
@@ -160,7 +171,13 @@ tablaLL1 = [
     [E, 'puntocoma', None],
     [E, 'identificador', None],
     # Bloques usados en funciones, if, for
+    [R, 'puntocoma', ['puntocoma']],
+    [R, 'identificador', ['identificador', 'puntocoma']],
+    [R, 'number', ['number', 'puntocoma']],
+    [R, 'character', ['character', 'puntocoma']],
+    [R, 'double', ['double', 'puntocoma']],
     [B, 'int', ['int', 'identificador', A, B]],
+    [B, 'return', ['return', R, B]],
     [B, 'float', ['float', 'identificador', A, B]],
     [B, 'char', ['char', 'identificador', A, B]],
     [B, 'identificador', ['identificador', A, B]],

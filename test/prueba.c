@@ -11,12 +11,14 @@ int a;
 int b(int a, int z)
 {
     int a;
+    return;
 }
 int main(int a, int z, float k)
 {
     if (f < l)
     {
         int a;
+        return ;
     }
     int k;
     char b = 'c';
@@ -32,6 +34,8 @@ int main(int a, int z, float k)
             b - c;
             m / k;
             2/o;
+            return;
         }
     }
+    return 0;
 } 
