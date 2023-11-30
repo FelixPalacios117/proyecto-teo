@@ -9,7 +9,10 @@ from utils.Tabla import tablaLL1
 t_eof = r"\$"
 # ignora tabs y espacios
 t_ignore = " \t"
-
+t_suma = r"\+"
+t_resta = r"\-"
+t_multiplicacion = r"\*"
+t_division = r"/"
 t_puntocoma = r"\;"
 t_asignacion = r"\="
 t_coma = r"\,"
@@ -26,13 +29,17 @@ def t_character(t):
     r"'.'"
     return t
 
+
 def t_define(t):
     r"\#define"
     return t
 
+
 def t_include(t):
     r'\#include\s*[<"][^>"]+[>"]'
     return t
+
+
 def t_newline(t):
     r"\n+"
     t.lexer.lineno += len(t.value)
@@ -79,9 +86,11 @@ def t_char(token):
     r"(char)"
     return token
 
+
 def t_void(token):
     r"(void)"
     return token
+
 
 def t_identificador(token):
     r"([a-z]|[A-Z]|_)([a-z]|[A-Z]|\d|_)*"
@@ -137,8 +146,9 @@ def parser(txt):
         if x == tok.type and x == 'eof':
             print(stack.__len__())
             print(stack)
-            print("\nAnálisis sintáctico terminado con errores\n") if errorFlag else print("\nAnálisis sintáctico terminado correctamente\n")
-            #print("Cadena reconocida exitosamente")
+            print("\nAnálisis sintáctico terminado con errores\n") if errorFlag else print(
+                "\nAnálisis sintáctico terminado correctamente\n")
+            # print("Cadena reconocida exitosamente")
             return  # aceptar
         else:
             if x == tok.type and x != 'eof':
@@ -146,8 +156,8 @@ def parser(txt):
                 x = stack[-1]
                 tok = lexer.token()
             if x in tokens and x != tok.type:
-                #print(tok)
-                #print(x)
+                # print(tok)
+                # print(x)
                 print("\nError: se esperaba ", tok.type)
                 print('en la posicion: ', tok.lexpos)
                 print("en la línea: ", tok.lineno)
@@ -157,11 +167,11 @@ def parser(txt):
                         break  """
                 errorFlag = True
                 stack.pop()
-                if(len(stack) != 0):
+                if (len(stack) != 0):
                     x = stack[-1]
                 else:
-                    return 0  
-                #return 0
+                    return 0
+                # return 0
             if x not in tokens:  # es no terminal
                 print("van entrar a la tabla:")
                 print(x)
@@ -173,12 +183,12 @@ def parser(txt):
                     print("en la línea: ", tok.lineno)
                     errorFlag = True
                     stack.pop()
-                    if(len(stack) != 0):
+                    if (len(stack) != 0):
                         x = stack[-1]
-                        tok = lexer.token() #thiss
+                        tok = lexer.token()  # thiss
                     else:
-                        return 0 
-                    #return 0
+                        return 0
+                    # return 0
                 else:
                     stack.pop()
                     agregar_pila(celda)

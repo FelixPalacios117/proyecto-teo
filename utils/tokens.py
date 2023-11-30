@@ -26,5 +26,6 @@ tokens=[
     'logico',
     'void',
     'include',
-    'define'
+    'define',
+    'division'
 ]

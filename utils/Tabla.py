@@ -1,8 +1,8 @@
 from utils.Nterminales import *
 # declaracion de funciones ok
 # pendiente if ok,
-# macros ok, inclusion ok, 
-#pendiente
+# macros ok, inclusion ok,
+# pendiente
 # operacion de aritmeticos y revisar bien errores
 # bug int a,
 # return
@@ -27,6 +27,9 @@ tablaLL1 = [
     [S, 'for', ['for', BU]],
     [S, 'parender', None],
     [S, 'parenizq', None],
+    [S, 'character', None],
+    [S, 'number', ['number', AR, S]],
+    [S, 'double', ['double', AR, S]],
     # identificadores
     [I, 'identificador', ['identificador', A]],
     [I, 'include', None],
@@ -50,6 +53,23 @@ tablaLL1 = [
     [I, 'else', None],
     [I, 'void', None],
     # asignar
+    [AR, 'suma', ['suma', OPA, AR]],
+    [AR, 'resta', ['resta', OPA, AR]],
+    [AR, 'division', ['division', OPA, AR]],
+    [AR, 'multiplicacion', ['multiplicacion', OPA, AR]],
+    [AR, 'puntocoma', ['puntocoma']],
+    [AR, 'void', None],
+    [AR, 'include', None],
+    [AR, 'define', None],
+    [AR, 'int', None],
+    [OPA, 'identificador', ['identificador']],
+    [OPA, 'number', ['number']],
+    [OPA, 'double', ['double']],
+    [OPA, 'character', None],
+    [A, 'suma', [AR]],
+    [A, 'resta', [AR]],
+    [A, 'division', [AR]],
+    [A, 'multiplicacion', [AR]],
     [A, 'asignacion', ['asignacion', T, A]],
     [A, 'parenizq', ['parenizq', E]],  # usado para funciones
     [A, 'coma', ['coma', I]],
@@ -148,9 +168,9 @@ tablaLL1 = [
     [B, 'for', ['for', BU]],
     [B, 'if', ['if', C]],
     [B, 'eof', None],
-    [B, 'number', None],
+    [B, 'number', ['number',AR]],
     [B, 'character', None],
-    [B, 'double', None],
+    [B, 'double', ['double',AR]],
     [B, 'logico', None],
     [B, 'for_or', None],
     [B, 'void', None],
@@ -252,7 +272,103 @@ tablaLL1 = [
     [EL, 'define', None],
     [EL, 'include', None],
     [EL, 'void', None],
-    #hasta aca por el momento
+    # sintaxis del for (int a=0;a<2;a++)...
+    [BU, 'for', None],
+    [BU, 'int', None],
+    [BU, 'double', None],
+    [BU, 'parenizq', ['parenizq', EF]],  # for
+    [BU, 'float', None],
+    [BU, 'char', None],
+    [BU, 'number', None],
+    [BU, 'parender', None],
+    [BU, 'eof', None],
+    [BU, 'if', None],
+    [BU, 'else', None],
+    [BU, 'llaveizq', None],
+    [BU, 'llaveder', None],
+    [BU, 'coma', None],
+    [BU, 'puntocoma', None],
+    [BU, 'identificador', None],
+    [BU, 'include', None],
+    [BU, 'character', None],
+    [BU, 'asignacion', None],
+    [BU, 'for_or', None],
+    [BU, 'logico', None],
+    [BU, 'define', None],
+    [BU, 'void', None],
+    # Sintaxis de los argumentos del for
+    [EF, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
+                 'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],
+    [EF, 'coma', ['coma', TI, EF]],
+    [EF, 'identificador', ['identificador', DF]],
+    [EF, 'parender', ['parender', 'puntocoma', S]],
+    [EF, 'puntocoma', None],
+    [EF, 'int', None],
+    [EF, 'double', None],
+    [EF, 'char', None],
+    [EF, 'number', None],
+    [EF, 'float', None],
+    [EF, 'character', None],
+    [EF, 'parenizq', None],
+    [EF, 'llaveizq', None],
+    [EF, 'llaveder', None],
+    [EF, 'eof', None],
+    [EF, 'void', None],
+    [EF, 'logico', None],
+    [EF, 'for_or', None],
+    [EF, 'define', None],
+    [EF, 'include', None],
+    [EF, 'else', None],
+    [EF, 'if', None],
+    [EF, 'asignacion', None],
+    # hasta aca por el momento tipos terminales
+    [TI, 'int', ['int']],
+    [TI, 'char', ['char']],
+    [TI, 'float', ['float']],
+    [TI, 'for', None],
+    [TI, 'if', None],
+    [TI, 'identificador', None],
+    [TI, 'number', None],
+    [TI, 'character', None],
+    [TI, 'double', None],
+    [TI, 'void', None],
+    [TI, 'asignacion', None],
+    [TI, 'include', None],
+    [TI, 'else', None],
+    [TI, 'define', None],
+    [TI, 'for_or', None],
+    [TI, 'logico', None],
+    [TI, 'eof', None],
+    [TI, 'parenizq', None],
+    [TI, 'parender', None],
+    [TI, 'llaveizq', None],
+    [TI, 'llaveder', None],
+    [TI, 'coma', None],
+    [TI, 'puntocoma', None],
+    # definicion de funciones
+    [DF, 'coma', ['coma', TI, 'identificador', DF]],
+    [DF, 'parender', [F]],
+    [DF, 'int', None],
+    [DF, 'float', None],
+    [DF, 'char', None],
+    [DF, 'identificador', None],
+    [DF, 'llaveizq', None],
+    [DF, 'llaveder', None],
+    [DF, 'eof', None],
+    [DF, 'parenizq', None],
+    [DF, 'puntocoma', None],
+    [DF, 'if', None],
+    [DF, 'number', None],
+    [DF, 'character', None],
+    [DF, 'double', None],
+    [DF, 'void', None],
+    [DF, 'define', None],
+    [DF, 'include', None],
+    [DF, 'else', None],
+    [DF, 'for', None],
+    [DF, 'asignacion', None],
+    [DF, 'for_or', None],
+    [DF, 'logico', None],
     # definicion macros para constantes simbolicas
     [ID, 'identificador', ['identificador', T]],
     [ID, 'int', None],
@@ -276,44 +392,5 @@ tablaLL1 = [
     [ID, 'double', None],
     [ID, 'void', None],
     [ID, 'puntocoma', None],
-
-
-
-    [BU, 'for', None],
-    [BU, 'int', None],
-    [BU, 'parenizq', ['parenizq', EF]],  # for
-    # [BU, 'eof', ['eof']],
-    [EF, 'int', ['int', 'identificador', 'asignacion', 'number', 'puntocoma',
-                 'identificador', OL, 'number', 'puntocoma', 'identificador', 'for_or', 'parender', 'llaveizq', B, S]],  # for]
-    # [I, 'identificador', ['identificador', A, S]],#
-
-    # [I, 'eof', [S]],
-    # [I, 'eof', ['eof', S]],  # ya veremos
-
-    # [E, 'parender', [F]],  # funcion
-
-    # [E, 'identificador', ['identificador', OL, 'identificador', F]],  # if
-    # parametros de funcion
-
-    [EF, 'coma', ['coma', TI, EF]],
-    [EF, 'identificador', ['identificador', DF]],
-    [EF, 'parender', ['parender', 'puntocoma', S]],
-    [DF, 'coma', ['coma', TI, 'identificador', DF]],
-    [DF, 'parender', [F]],
-    [DF, 'int', None],
-    [DF, 'float', None],
-    [DF, 'char', None],
-    [DF, 'identificador', None],
-    [DF, 'llaveizq', None],
-    [DF, 'llaveder', None],
-    [TI, 'int', ['int']],
-    [TI, 'char', ['char']],
-    [TI, 'float', ['float']],
-    [TI, 'for', None],
-    [TI, 'if', None],
-    [TI, 'identificador', None],
-
-
-
-
+    [ID, 'eof', None],
 ]
