@@ -323,6 +323,14 @@ tabla = [
     [C, 'coma', None],
     [C, 'puntocoma', None],
     [C, 'include', None],
+    [C, 'suma', None],
+    [C, 'resta', None],
+    [C, 'division', None],
+    [C, 'multiplicacion', None],
+    [C, 'aritmetico', None],
+    [C, 'return', None],
+    [C, 'asignacion', None],
+    [C, 'identificador', None],
     # Expresion valida o condicion dentro del if
     [EI, 'parender', None],
     [EI, 'identificador', ['identificador', OL, 'identificador']],
@@ -346,6 +354,13 @@ tabla = [
     [EI, 'coma', None],
     [EI, 'puntocoma', None],
     [EI, 'include', None],
+    [EI, 'suma', None],
+    [EI, 'resta', None],
+    [EI, 'multiplicacion', None],
+    [EI, 'division', None],
+    [EI, 'aritmetico', None],
+    [EI, 'return', None],
+    [EI, 'asignacion', None],
     # Operador logico
     [OL, 'logico', ['logico']],  # funcion
     [OL, 'parender', None],
