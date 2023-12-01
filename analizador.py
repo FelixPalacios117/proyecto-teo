@@ -91,9 +91,12 @@ def t_void(token):
     r"(void)"
     return token
 
+
 def t_return(token):
     r"(return)"
     return token
+
+
 def t_identificador(token):
     r"([a-z]|[A-Z]|_)([a-z]|[A-Z]|\d|_)*"
     return token
@@ -121,6 +124,7 @@ def t_comentario_bloque(token):
 def t_error(token):
     token.lexer.skip(1)
 
+
 stack = ["eof", 0]
 
 
@@ -132,14 +136,19 @@ def leer_fichero(txt):
 
 
 lexer = lex.lex()
-
-
+tabla_simbolos = {}
 def parser(txt):
-    hasErrors= False
+    hasErrors = False
     lexer.input(str(leer_fichero(txt)+"\n $"))
     tok = lexer.token()
     x = stack[-1]  # primer elemento de derecha a izquierda
     while True:
+        if tok:
+            tabla_simbolos[tok.lexpos] = {
+            'Linea': tok.lineno,
+            'Posicion': tok.lexpos,
+            'Tipo': tok.type,
+            'Valor': tok.value}
         if x == tok.type and x == 'eof':
             print("\nAnálisis sintáctico finalizado con errores\n") if hasErrors else print(
                 "\nAnálisis sintáctico finalizado con exito\n")
@@ -177,7 +186,6 @@ def parser(txt):
                     agregar_pila(celda)
                     x = stack[-1]
 
-
 def buscar_en_tabla(no_terminal, terminal):
     for i in range(len(tabla)):
         if tabla[i][0] == no_terminal and tabla[i][1] == terminal:
@@ -190,8 +198,24 @@ def agregar_pila(produccion):
             stack.append(elemento)
 
 
+def imprimir_tabla(tabla):
+    encabezados = ("Linea", "Posicion", "Tipo", "Valor")
+    # Imprimir encabezados
+    print("| {:<10} | {:<10} | {:<25} | {:<35} |".format(*encabezados))
+    print("|{:-<12}|{:-<12}|{:-<27}|{:-<37}|".format('', '', '', ''))
+
+    for lexpos, data in tabla.items():
+        fila = "| {:<10} | {:<10} | {:<25} | {:<35} |".format(
+            data['Linea'], data['Posicion'], data['Tipo'], data['Valor'])
+        print(fila)
+
+
 if __name__ == "__main__":
     print("\n")
     result = parser("./test/prueba.c")
+    print("\n")
+    print("Imprimiendo tabla de simbolos..")
+    print("\n")
+    imprimir_tabla(tabla_simbolos)
     if result == 0:
         print("\nAnálisis sintáctico finalizado con errores\n")
