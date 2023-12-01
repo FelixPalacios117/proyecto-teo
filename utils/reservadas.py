@@ -1,11 +1,11 @@
 reservadas = {
     'int': 'int',
-    'char': 'CHAR',
+    'char': 'char',
     'float': 'float',
-    'if': 'IF',
-    'else': 'ELSE',
-    'return': 'RETURN',
-    'void': 'VOID',
-    'include': 'INCLUDE',
-    'define': 'DEFINE',
+    'if': 'if',
+    'else': 'else',
+    'return': 'return',
+    'void': 'void',
+    'include': 'include',
+    'define': 'define',
 }
