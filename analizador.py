@@ -135,59 +135,43 @@ lexer = lex.lex()
 
 
 def parser(txt):
+    hasErrors= False
     lexer.input(str(leer_fichero(txt)+"\n $"))
     tok = lexer.token()
-    errorFlag = False
-    x = stack[-1]  # primer elemento de der a izq
+    x = stack[-1]  # primer elemento de derecha a izquierda
     while True:
-        print(tok)
-        print(x)
         if x == tok.type and x == 'eof':
-            print(stack.__len__())
-            print(stack)
-            print("\nAnálisis sintáctico terminado con errores\n") if errorFlag else print(
-                "\nAnálisis sintáctico terminado correctamente\n")
-            # print("Cadena reconocida exitosamente")
-            return  # aceptar
+            print("\nAnálisis sintáctico finalizado con errores\n") if hasErrors else print(
+                "\nAnálisis sintáctico finalizado con exito\n")
+            return  # se acepta
         else:
             if x == tok.type and x != 'eof':
                 stack.pop()
                 x = stack[-1]
                 tok = lexer.token()
             if x in tokens and x != tok.type:
-                # print(tok)
-                # print(x)
                 print("\nError: se esperaba ", tok.type)
                 print('en la posicion: ', tok.lexpos)
                 print("en la línea: ", tok.lineno)
-                """  while True :
-                    tok = lexer.token()
-                    if tok.type == x :
-                        break  """
-                errorFlag = True
+                hasErrors = True
                 stack.pop()
                 if (len(stack) != 0):
                     x = stack[-1]
                 else:
                     return 0
-                # return 0
-            if x not in tokens:  # es no terminal
-                print("van entrar a la tabla:")
-                print(x)
-                print(tok.type)
+            if x not in tokens:  # el actual es no terminal
                 celda = buscar_en_tabla(x, tok.type)
                 if celda is None:
                     print("\nError: NO se esperaba", tok.type)
                     print('en la posicion: ', tok.lexpos)
                     print("en la línea: ", tok.lineno)
-                    errorFlag = True
+                    hasErrors = True
                     stack.pop()
                     if (len(stack) != 0):
                         x = stack[-1]
-                        tok = lexer.token()  # thiss
+                        tok = lexer.token()  # continua leyendo aunque encuentre error
                     else:
                         return 0
-                    # return 0
                 else:
                     stack.pop()
                     agregar_pila(celda)
@@ -210,4 +194,4 @@ if __name__ == "__main__":
     print("\n")
     result = parser("./test/prueba.c")
     if result == 0:
-        print("\nAnálisis sintáctico terminado con errores\n")
+        print("\nAnálisis sintáctico finalizado con errores\n")
