@@ -295,6 +295,12 @@ tabla = [
     [B, 'coma', None],
     [B, 'puntocoma', None],
     [B, 'include', None],
+    [B, 'suma', None],
+    [B, 'resta', None],
+    [B, 'multiplicacion', None],
+    [B, 'division', None],
+    [B, 'aritmetico', None],
+    [B, 'asignacion', None],
     # usado para definir la estructura de un if,if-else
     [C, 'parenizq', ['parenizq', EI, 'parender', 'llaveizq', B, EL, S]],  # if
     [C, 'for', None],
