@@ -482,8 +482,7 @@ tabla = [
     [EF, 'division', None],
     [EF, 'aritmetico', None],
     [EF, 'return', None],
-    # hasta aca por el momento tipos terminales
-    [TI, 'int', ['int']],
+    [TI, 'int', ['int']],  # tipos de datos
     [TI, 'char', ['char']],
     [TI, 'float', ['float']],
     [TI, 'for', None],
@@ -506,6 +505,12 @@ tabla = [
     [TI, 'llaveder', None],
     [TI, 'coma', None],
     [TI, 'puntocoma', None],
+    [TI, 'suma', None],
+    [TI, 'resta', None],
+    [TI, 'multiplicacion', None],
+    [TI, 'division', None],
+    [TI, 'aritmetico', None],
+    [TI, 'return', None],
     # definicion de funciones
     [DF, 'coma', ['coma', TI, 'identificador', DF]],
     [DF, 'parender', [F]],
@@ -530,6 +535,12 @@ tabla = [
     [DF, 'asignacion', None],
     [DF, 'for_or', None],
     [DF, 'logico', None],
+    [DF, 'suma', None],
+    [DF, 'resta', None],
+    [DF, 'multiplicacion', None],
+    [DF, 'division', None],
+    [DF, 'aritmetico', None],
+    [DF, 'return', None],
     # definicion macros para constantes simbolicas
     [ID, 'identificador', ['identificador', T]],
     [ID, 'int', None],
@@ -553,5 +564,11 @@ tabla = [
     [ID, 'double', None],
     [ID, 'void', None],
     [ID, 'puntocoma', None],
-    [ID, 'eof', None],
+    [ID, 'include', None],
+    [ID, 'suma', None],
+    [ID, 'resta', None],
+    [ID, 'division', None],
+    [ID, 'multiplicacion', None],
+    [ID, 'return', None],
+    [ID, 'aritmetico', None],
 ]
