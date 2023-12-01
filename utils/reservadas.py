@@ -6,6 +6,4 @@ reservadas = {
     'else': 'else',
     'return': 'return',
     'void': 'void',
-    'include': 'include',
-    'define': 'define',
 }
