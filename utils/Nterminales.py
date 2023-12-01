@@ -17,3 +17,4 @@ ID = 15  # macros y def
 OPA = 16 #operadores
 AR = 17  # Exp aritmeticas
 R=18 #combinaciones de return
+EE=19

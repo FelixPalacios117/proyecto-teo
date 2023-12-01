@@ -120,7 +120,6 @@ def t_comentario_bloque(token):
 
 # Manejo de errores
 
-
 def t_error(token):
     token.lexer.skip(1)
 
@@ -212,7 +211,7 @@ def imprimir_tabla(tabla):
 
 if __name__ == "__main__":
     print("\n")
-    result = parser("./test/prueba.c")
+    result = parser("./test/prueba3.c")
     print("\n")
     print("Imprimiendo tabla de simbolos..")
     print("\n")

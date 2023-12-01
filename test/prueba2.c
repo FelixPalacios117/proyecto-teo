@@ -1,6 +1,8 @@
-int a, b = 0;
-int c = 0;
-float c, b = 0.3;
-char c = 'a';
-c = 'b';
-b = 1.22;
+#define pi 3.14
+int main (){
+    int a=0,b=2;
+    if(a<b){
+        return 0;
+    }
+    return 2;
+}
